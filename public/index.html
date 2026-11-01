@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixador do YouTube</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0; box-sizing: border-box; }
+        .card { background: #1e293b; padding: 2rem; border-radius: 1rem; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; box-sizing: border-box; }
+        input { width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid #475569; background: #0f172a; color: #fff; margin-bottom: 1rem; box-sizing: border-box; }
+        button { width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: none; background: #2563eb; color: #fff; font-weight: bold; cursor: pointer; }
+        button:hover { background: #1d4ed8; }
+        #status { margin-top: 1rem; font-size: 0.875rem; color: #94a3b8; }
+        footer { margin-top: 2rem; text-align: center; font-size: 0.85rem; color: #64748b; }
+        footer a { color: #38bdf8; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Baixar do YouTube</h2>
+    <input type="text" id="urlInput" placeholder="Cole o link do YouTube aqui...">
+    <button onclick="fazerDownload()">Baixar Vídeo MP4</button>
+    <p id="status"></p>
+</div>
+
+<footer>
+    Desenvolvido por Arsénio Noge | 
+    <a href="https://arseniocyber.github.io" target="_blank" rel="noopener noreferrer">Visitar Meu Site</a>
+</footer>
+
+<script>
+    function fazerDownload() {
+        const url = document.getElementById('urlInput').value.trim();
+        const status = document.getElementById('status');
+
+        if (!url) {
+            alert('Por favor, cole um link válido!');
+            return;
+        }
+
+        status.innerText = 'Gerando link de download... O vídeo vai começar logo.';
+        window.location.href = `/api/download?url=${encodeURIComponent(url)}`;
+    }
+</script>
+
+</body>
+</html>
