@@ -1,0 +1,10 @@
+{
+  "name": "baixador-youtube",
+  "version": "1.0.0",
+  "description": "Ferramenta para baixar videos do YouTube via API externa",
+  "main": "api/download.js",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5"
+  }
+}
